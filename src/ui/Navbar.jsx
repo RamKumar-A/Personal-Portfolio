@@ -8,7 +8,6 @@ import { scrollToSection } from '../../helpers/scrollIntoView';
 
 function Navbar() {
   const location = useLocation();
-
   const datas = [
     {
       icon: <IoHomeOutline />,
@@ -26,12 +25,18 @@ function Navbar() {
   ];
 
   return (
-    // <div className="text-left lg:grid justify-items-start">
     <ul className="h-[90vh] flex flex-col  justify-center gap-5 my-5 p-5 ">
       {datas.map((data) => (
         <li
           className=" flex items-center gap-2 rounded-full p-2 cursor-pointer group "
-          onClick={() => scrollToSection(data.id)}
+          onClick={() => {
+            scrollToSection(data.id);
+            if (data.id === 'resume')
+              window.open(
+                'https://acrobat.adobe.com/id/urn:aaid:sc:AP:fd6cce2b-6798-434d-b628-ec839605ab16',
+                '_blank'
+              );
+          }}
           key={data.id}
         >
           <h1

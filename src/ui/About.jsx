@@ -5,7 +5,7 @@ function About() {
     <Fade direction="">
       <div className=" pt-10 section xl:mb-10 px-1" id="about">
         <h1 className="section_header">My Exploration</h1>
-        <div className="grid  xl:grid-cols-[auto_auto] gap-5 px-3 sm:px-14 my-10 sm:mx-10 rounded-2xl py-10 z-10 bg-gray-200 place-items-center shadow-xl ">
+        <div className="grid xl:grid-cols-[auto_auto] gap-5 px-3 sm:px-14 my-10 sm:mx-10 rounded-2xl py-10 z-10 bg-gray-300 place-items-center shadow-xl ">
           <div className="w-full h-full hidden xl:flex items-center justify-center   ">
             <img
               src="../Images/Profile.jpg"
@@ -14,7 +14,7 @@ function About() {
             />
           </div>
           <div className="max-sm:text-sm sm:px-5 ">
-            <p className="text-gray-700 leading-8 ">
+            <p className="text-gray-900 leading-8 ">
               Hi there! I'm a 21-year-old frontend developer passionate about
               creating user-friendly designs. Working with various scripting
               languages and frameworks, I've set high standards for web

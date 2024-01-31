@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { IoHomeOutline, IoPersonOutline } from 'react-icons/io5';
 import { RiFolderUserLine } from 'react-icons/ri';
 import { FaRegFilePdf } from 'react-icons/fa6';
@@ -20,12 +20,27 @@ function NavbarModal({ toggleNav, handleToggle }) {
       name: 'Project',
     },
     { icon: <SiBlueprint />, id: 'skills', name: 'Skills' },
-    { icon: <FaRegFilePdf />, id: 'resume', name: 'Resume' },
+    {
+      icon: (
+        <NavLink>
+          <FaRegFilePdf />
+        </NavLink>
+      ),
+      id: 'resume',
+      name: 'Resume',
+    },
   ];
+
   function handleClick(id) {
     scrollToSection(id);
     handleToggle();
+    if (id === 'resume')
+      window.open(
+        'https://acrobat.adobe.com/id/urn:aaid:sc:AP:fd6cce2b-6798-434d-b628-ec839605ab16',
+        '_blank'
+      );
   }
+
   return (
     <div
       className={

@@ -78,7 +78,7 @@ function Applayout() {
           </div>
           <div
             onClick={scrollToTop}
-            className="fixed bottom-2 right-2 xl:bottom-5 xl:right-5 bg-blue-600 p-2 lg:p-3 hover:outline outline-4 outline-blue-600 lg:text-2xl border-4 border-gray-100 text-gray-50 cursor-pointer"
+            className="fixed bottom-2 right-2 xl:bottom-5 xl:right-5 bg-blue-600 p-2 lg:p-3 hover:outline outline-4 outline-blue-600 z-[9999] rounded-lg lg:text-2xl border-4 border-gray-100 text-gray-50 cursor-pointer"
           >
             <HiArrowUp />
           </div>
