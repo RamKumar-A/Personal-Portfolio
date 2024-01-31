@@ -36,7 +36,7 @@ function NavbarModal({ toggleNav, handleToggle }) {
     handleToggle();
     if (id === 'resume')
       window.open(
-        'https://acrobat.adobe.com/id/urn:aaid:sc:AP:fd6cce2b-6798-434d-b628-ec839605ab16',
+        'https://drive.google.com/file/d/1DS4wxCPe9r5l5S0Bm66-EHQ6YOahcHgr/view',
         '_blank'
       );
   }
