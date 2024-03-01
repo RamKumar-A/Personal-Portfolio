@@ -29,11 +29,15 @@ function Carousel({ className, images }) {
       </button>
 
       <div className="h-full md:h-[22rem] lg:h-full p-1 md:p-5 bg-gray-300 border border-gray-500 transition-all duration-1000  xl:w-[55rem]">
-        <img
-          src={images[curSlide]}
-          alt={images.at(curSlide)}
-          className={`${className} object-contain `}
-        />
+        {images.map((image, i) => (
+          <img
+            src={image}
+            alt={image}
+            className={`${className} object-contain ${
+              i === curSlide ? 'block' : 'hidden'
+            }`}
+          />
+        ))}
         <div className="hidden md:flex gap-2 items-center justify-center">
           {images.map((_, i) => (
             <button
