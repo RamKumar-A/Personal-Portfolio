@@ -20,18 +20,27 @@ export const carouselImgCineHub = [
   '../../Images/cine hub 03.png',
 ];
 
-// '../../Images/watchrealm-mobile01.jpg',
-// '../../Images/watchrealm-mobile02.jpg',
-// '/public/Images/watchrealm01.png',
-// '/public/Images/watchrealm02.png',
-// '/public/Images/watchrealm03.png',
-// '/public/Images/watchrealm-mobile01.jpg',
-// '/public/Images/watchrealm-mobile02.jpg',
+// export const zenlist = 'https://i.ibb.co/mB8f2Sk/zenlist01.png';
+// export const watchRealm = 'https://i.ibb.co/MMJs4mQ/watchrealm01.png';
+// export const cineHub = 'https://i.ibb.co/tLbvySm/cine-hub-01.png';
 
-// '../../Images/zenlist-mobile01.jpg',
-// '../../Images/zenlist06.png',
-// '/public/Images/zenlist01.jpg',
-// '/public/Images/zenlist03.jpg',
-// '/public/Images/zenlist06.jpg',
-// '/public/Images/zenlist-mobile01.jpg',
-// '/public/Images/zenlist-mobile04.jpg',
+// export const carouselImgZenlist = [
+//   'https://i.ibb.co/mB8f2Sk/zenlist01.png',
+//   'https://i.ibb.co/4MNm126/zenlist03.png',
+//   'https://i.ibb.co/v4Rz2VX/zenlist-mobile04.jpg',
+// ];
+
+// export const carouselImgWatchRealm = [
+//   'https://i.ibb.co/MMJs4mQ/watchrealm01.png',
+//   'https://i.ibb.co/f2rQq51/watchrealm02.png',
+//   'https://i.ibb.co/0CY1Gzs/watchrealm03.png',
+// ];
+
+// export const carouselImgCineHub = [
+//   // '../../Images/cine hub 01.png',
+//   // '../../Images/cinehub02.png',
+//   // '../../Images/cine hub 03.png',
+//   'https://i.ibb.co/tLbvySm/cine-hub-01.png',
+//   'https://i.ibb.co/ph76g8V/cinehub02.png',
+//   'https://i.ibb.co/QQS8N1r/cine-hub-03.png',
+// ];
