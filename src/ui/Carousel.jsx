@@ -28,7 +28,7 @@ function Carousel({ className, images }) {
         <HiArrowLeft className="" />
       </button>
 
-      <div className="h-full md:h-[22rem] lg:h-full p-1 md:p-5 bg-gray-300 border border-gray-500 transition-all duration-1000  xl:w-[55rem]">
+      <div className="h-full md:h-[22rem] lg:h-full p-1 md:p-5 transition-all duration-1000  xl:w-[55rem]">
         {images.map((image, i) => (
           <img
             src={image}
@@ -38,7 +38,7 @@ function Carousel({ className, images }) {
             }`}
           />
         ))}
-        <div className="hidden md:flex gap-2 items-center justify-center">
+        <div className="hidden md:flex gap-2 items-center justify-center mt-5 xl:mt-4">
           {images.map((_, i) => (
             <button
               className={`cursor-pointer rounded-full bg-gray-900 ${

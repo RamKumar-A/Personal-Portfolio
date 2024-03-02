@@ -35,19 +35,20 @@ function ProjectItems({ img, title, data, handleDetails, details, className }) {
             </h2>
           </div>
         </Modal.Open>
-        <div className="flex items-center pt-5 gap-5 lg:text-lg">
+        <div className="flex items-center pt-5 lg:text-lg">
           <Modal.Open opensWindowName="project-details">
             <button className=" uppercase text-sm font-semibold tracking-widest">
               View Details
             </button>
           </Modal.Open>
-          <div className="h-4 w-0.5 bg-gray-400"></div>
+          <div className="h-4 w-0.5 mx-3 bg-gray-400"></div>
           <NavLink to={project?.url} target="_blank">
             <button
-              className="flex items-center gap-2 uppercase text-sm font-semibold tracking-widest"
+              className="flex items-center justify-center uppercase gap-1 text-sm font-semibold tracking-widest group"
               onClick={() => handleDetails(data)}
             >
-              View Site <HiOutlineExternalLink />{' '}
+              View Site{' '}
+              <HiOutlineExternalLink className="-translate-y-[1px] group-hover:translate-x-1 group-hover:transition-transform duration-300" />{' '}
             </button>
           </NavLink>
         </div>

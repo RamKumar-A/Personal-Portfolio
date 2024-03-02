@@ -7,7 +7,7 @@ import Carousel from './Carousel';
 function ProjectDetails({ project }) {
   // const project = projectData.find((item) => item.title === details.title);
   const btnClass =
-    'p-2 border border-gray-900 sm:px-3 flex items-center justify-center gap-2 uppercase sm:tracking-widest bg-gray-300 font-semibold rounded-xl active:translate-y-0.5';
+    'p-2  sm:px-3 flex items-center justify-center gap-2 uppercase sm:tracking-widest bg-gray-200 font-semibold rounded-lg active:translate-y-0.5 shadow-lg border border-gray-200 shadow-gray-400 hover:shadow-lg hover:shadow-gray-500 hover:transition-all duration-300 ease-out ';
 
   return (
     <>
@@ -17,7 +17,7 @@ function ProjectDetails({ project }) {
           className={`w-full h-52 md:h-[24rem] lg:w-[35rem] lg:h-[20rem] xl:w-[55rem] xl:h-[30rem] flex items-center justify-center `}
         >
           <Carousel
-            className=" p-1 sm:p-2 w-full h-full "
+            className=" p-1 sm:p-2 w-full h-full shadow-xl shadow-gray-500 "
             images={project?.carouselImg}
           />
         </div>
@@ -37,9 +37,9 @@ function ProjectDetails({ project }) {
                   </button>
                 </NavLink>
                 <NavLink to={project?.url} target="_blank">
-                  <button className={btnClass}>
-                    View site
-                    <HiOutlineExternalLink />
+                  <button className={`${btnClass} group  `}>
+                    <span className="">View site</span>
+                    <HiOutlineExternalLink className="group-hover:scale-110 group-hover:translate-x-0.5 group-hover:transition-transform duration-300 ease-out" />
                   </button>
                 </NavLink>
               </div>
@@ -49,7 +49,10 @@ function ProjectDetails({ project }) {
             <h1 className="text-xl font-medium">Tech Stack</h1>
             <div className="flex flex-wrap items-center justify-start font-medium gap-3 p-1 pt-4">
               {project?.techStack.map((tech, i) => (
-                <p className="p-1 border border-gray-900 px-2" key={i}>
+                <p
+                  className="p-1 border border-blue-500 rounded-md bg-blue-700 text-gray-50 px-2 shadow-lg shadow-gray-500"
+                  key={i}
+                >
                   {tech}
                 </p>
               ))}

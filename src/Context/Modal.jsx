@@ -31,7 +31,7 @@ function Window({ name, children }) {
         onClick={close}
         className="absolute top-0.5 right-0.5 z-[100] xl:top-2 xl:right-2 text-lg p-0.5 sm:p-1 bg-blue-700 text-gray-300 rounded-full"
       >
-        <HiXMark />
+        <HiXMark className="hover:rotate-[360deg] hover:transition-transform duration-500 ease-in-out" />
       </button>
       <Fade>
         <div className="flex items-center justify-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] h-[90%] bg-gray-50 z-50 p-2 overflow-auto shadow-2xl shadow-gray-700 rounded ">
