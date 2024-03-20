@@ -33,7 +33,7 @@ function Navbar() {
             scrollToSection(data.id);
             if (data.id === 'resume')
               window.open(
-                'https://drive.google.com/file/d/1DS4wxCPe9r5l5S0Bm66-EHQ6YOahcHgr/view',
+                'https://drive.google.com/file/d/1uz84XtTx8mEyLgxgpLbsGkHxrShzb_TE/view?usp=sharing',
                 '_blank'
               );
           }}

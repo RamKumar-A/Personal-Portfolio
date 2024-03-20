@@ -1,6 +1,6 @@
 export const zenlist = '../../Images/zenlist01.png';
 export const watchRealm = '../../Images/watchrealm01.png';
-export const cineHub = '../../Images/cine hub 01.png';
+export const cineHub = '../../Images/cinehub01.jpg';
 
 export const carouselImgZenlist = [
   '../../Images/zenlist01.png',
@@ -15,9 +15,9 @@ export const carouselImgWatchRealm = [
 ];
 
 export const carouselImgCineHub = [
-  '../../Images/cine hub 01.png',
-  '../../Images/cinehub02.png',
-  '../../Images/cine hub 03.png',
+  '../../Images/cinehub01.jpg',
+  '../../Images/cinehub02.jpg',
+  '../../Images/cinehub03.jpg',
 ];
 
 // export const zenlist = 'https://i.ibb.co/mB8f2Sk/zenlist01.png';
@@ -37,9 +37,7 @@ export const carouselImgCineHub = [
 // ];
 
 // export const carouselImgCineHub = [
-//   // '../../Images/cine hub 01.png',
-//   // '../../Images/cinehub02.png',
-//   // '../../Images/cine hub 03.png',
+
 //   'https://i.ibb.co/tLbvySm/cine-hub-01.png',
 //   'https://i.ibb.co/ph76g8V/cinehub02.png',
 //   'https://i.ibb.co/QQS8N1r/cine-hub-03.png',
