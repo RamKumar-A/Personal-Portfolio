@@ -1,60 +1,51 @@
-import { useLocation } from 'react-router-dom';
-import { IoHomeOutline, IoPersonOutline } from 'react-icons/io5';
-import { RiFolderUserLine } from 'react-icons/ri';
-import { FaRegFilePdf } from 'react-icons/fa6';
-import { SiBlueprint } from 'react-icons/si';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
-import { scrollToSection } from '../../helpers/scrollIntoView';
+const navs = [
+  {
+    nav: 'Work',
+    id: 'work',
+  },
+  {
+    nav: 'Skills',
+    id: 'skills',
+  },
+  {
+    nav: 'About',
+    id: 'about',
+  },
+];
 
 function Navbar() {
-  const location = useLocation();
-  const datas = [
-    {
-      icon: <IoHomeOutline />,
-      id: 'home',
-      name: 'Home',
-    },
-    { icon: <IoPersonOutline />, id: 'about', name: 'About' },
-    {
-      icon: <RiFolderUserLine />,
-      id: 'project',
-      name: 'Project',
-    },
-    { icon: <SiBlueprint />, id: 'skills', name: 'Skills' },
-    { icon: <FaRegFilePdf />, id: 'resume', name: 'Resume' },
-  ];
+  const [activeNav, setActiveNav] = useState('');
 
   return (
-    <ul className="h-[90vh] flex flex-col  justify-center gap-5 my-5 p-5 ">
-      {datas.map((data) => (
-        <li
-          className=" flex items-center gap-2 rounded-full p-2 cursor-pointer group "
-          onClick={() => {
-            scrollToSection(data.id);
-            if (data.id === 'resume')
-              window.open(
-                'https://drive.google.com/file/d/1uz84XtTx8mEyLgxgpLbsGkHxrShzb_TE/view?usp=sharing',
-                '_blank'
-              );
-          }}
-          key={data.id}
-        >
-          <h1
-            className={` p-4 xl:h-14 text-2xl flex justify-center items-center gap-2 transition-all duration-75 ease-linear rounded-full hover:bg-blue-600 hover:text-gray-100 group ${
-              location.hash === '#' + data.id
-                ? 'bg-blue-600 text-gray-100 '
-                : 'bg-gray-200 text-blue-700 '
-            }`}
+    <ul className="flex items-center gap-5 text-accent font-[Nunito-Sans] tracking-wider font-bold">
+      {navs.map((nav) => (
+        <a href={`#${nav.id}`} key={nav.id} className="relative">
+          <li
+            className="relative px-3 py-1"
+            onClick={() => setActiveNav(nav.nav)}
           >
-            <span className="">{data.icon}</span>
-            <span className="hidden text-lg group-hover:block">
-              {data.name}
+            {activeNav === nav.nav && (
+              <motion.div
+                layoutId="active-nav"
+                className="absolute bg-accent inset-0 "
+                style={{ borderRadius: 9999 }}
+                transition={{ type: 'spring', duration: 0.3 }}
+              />
+            )}
+            <span
+              className={`z-20 mix-blend-screen  ${
+                activeNav === nav.nav ? 'text-primary' : ''
+              }`}
+            >
+              {nav.nav}
             </span>
-          </h1>
-        </li>
+          </li>
+        </a>
       ))}
     </ul>
-    // </div>
   );
 }
 

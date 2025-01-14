@@ -4,67 +4,100 @@ import { IoLogoCss3 } from 'react-icons/io5';
 import {
   SiRedux,
   SiTailwindcss,
-  SiStyledcomponents,
-  SiReactrouter,
+  // SiStyledcomponents,
+  // SiReactrouter,
+  SiReactquery,
+  SiMui,
+  SiSupabase,
 } from 'react-icons/si';
 
+import { motion } from 'framer-motion';
+
 import SkillCard from './SkillCard';
+import {
+  childVariants,
+  grandchildVariants,
+  parentVariants,
+} from '../helpers/variants';
+
+const datas = [
+  {
+    icon: <IoLogoHtml5 />,
+    title: 'HTML',
+    iconColor: '#ea580c',
+  },
+  {
+    icon: <IoLogoCss3 />,
+    title: 'CSS',
+    iconColor: '#254bdd',
+  },
+  {
+    icon: <IoLogoJavascript />,
+    title: 'javascript',
+    iconColor: '#facc15',
+  },
+  {
+    icon: <IoLogoReact />,
+    title: 'react',
+    iconColor: '#38bdf8',
+  },
+  {
+    icon: <SiRedux />,
+    title: 'redux',
+    iconColor: '#764abc',
+  },
+  {
+    icon: <SiReactquery />,
+    title: 'react query',
+    iconColor: '#000',
+  },
+  {
+    icon: <IoLogoGithub />,
+    title: 'git',
+    iconColor: '#0d1117',
+  },
+  {
+    icon: <SiTailwindcss />,
+    title: 'tailwind CSS',
+    iconColor: '#38bdf8',
+  },
+  {
+    icon: <SiMui />,
+    title: 'material ui',
+    iconColor: '#0686bd',
+  },
+  {
+    icon: <SiSupabase />,
+    title: 'supabase',
+    iconColor: '#40D08F',
+  },
+];
 
 function Skills() {
-  const datas = [
-    {
-      icon: <IoLogoHtml5 />,
-      title: 'HTML',
-    },
-    {
-      icon: <IoLogoCss3 />,
-      title: 'CSS',
-    },
-    {
-      icon: <IoLogoJavascript />,
-      title: 'javascript',
-    },
-    {
-      icon: <IoLogoReact />,
-      title: 'react',
-    },
-    {
-      icon: <SiRedux />,
-      title: 'redux',
-    },
-    {
-      icon: <IoLogoGithub />,
-      title: 'git',
-    },
-    {
-      icon: <SiTailwindcss />,
-      title: 'tailwind css',
-    },
-    {
-      icon: <SiStyledcomponents />,
-      title: 'styled components',
-    },
-    {
-      icon: <SiReactrouter />,
-      title: 'react router',
-    },
-  ];
-
   return (
-    <div
+    <motion.section
       id="skills"
-      className="grid items-center mb-2 justify-items-center py-10  place-content-center section "
+      variants={parentVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ delayChildren: 0.01, staggerChildren: 0.01 }}
+      className="grid items-center justify-items-center  place-content-center section space-y-5 "
     >
-      <h1 className="section_header pb-5">Skills Snapshot</h1>
-      <div className="flex items-center justify-center m-2 gap-4 flex-wrap py-5">
+      <div className="md:py-20 px-10 p-5">
+        <motion.h1 variants={childVariants} className="section_header ">
+          <span className="heading">Skills Snapshot</span>
+        </motion.h1>
+      </div>
+      <div className="flex items-center justify-center gap-4 flex-wrap w-[80%] ">
         {datas.map((data) => (
-          <SkillCard icons={data.icon} title={data.title} key={data.title} />
+          <motion.div variants={grandchildVariants} key={data.title}>
+            <SkillCard data={data} />
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.section>
   );
 }
 
 export default Skills;
-
-/* <h1 className="text-2xl md:text-[1.6rem]  w-full text-center xl:text-3xl font-medium flex items-center justify-center   bg-clip-text mb-5 uppercase tracking-widest  p-5 py-3"> */

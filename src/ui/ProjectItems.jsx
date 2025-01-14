@@ -1,62 +1,58 @@
-import { NavLink } from 'react-router-dom';
-import { HiOutlineExternalLink } from 'react-icons/hi';
-
-import Modal from '../Context/Modal';
 import ProjectDetails from './ProjectDetails';
-import { projectData } from '../data/projectData/data';
+import { projectData } from '../data/projectData';
+import { motion } from 'framer-motion';
+import { useMouseMove } from '../hooks/mouseMoveAnimation';
+import { useState } from 'react';
+import Modal from './Modal';
 
-function ProjectItems({ img, title, data, handleDetails, details, className }) {
+function ProjectItems({ data, bgGradient }) {
+  const [details, setDetails] = useState({});
+
+  function handleDetails(detail) {
+    setDetails(detail);
+  }
+
+  const { ref, transform, handleMouseLeave, handleMouseMove } = useMouseMove();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  function toggleModal() {
+    setIsModalOpen(!isModalOpen);
+  }
+
+  const { coverImage, title } = data || {};
   const project = projectData.find((item) => item.title === details.title);
-
   return (
-    <div
-      className={
-        className +
-        ' my-3 mx-2 shadow-xl rounded-xl hover:shadow-xl hover:shadow-gray-600  '
-      }
-    >
-      <div
-        className="w-full md:w-[35rem] lg:w-full xl:w-full h-full grid grid-rows-[1fr_auto_auto] place-items-center bg-gray-200 gap-2  p-5 rounded-xl "
-        onClick={() => handleDetails(data)}
+    <>
+      <motion.div
+        className={`rounded-2xl ${bgGradient} bg-gradient-to-tr relative group cursor-pointer`}
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          transformStyle: 'preserve-3d',
+          transform,
+        }}
+        onClick={() => {
+          toggleModal();
+          handleDetails(data);
+        }}
       >
-        <Modal.Open opensWindowName="project-details">
-          <div className=" md:h-64 lg:h-56 xl:h-80 md:w-full xl:w-[35rem] bg-gray-200 cursor-pointer  ">
-            <img
-              src={img}
-              alt={title}
-              className=" md:p-2 xl:p-0 h-full w-full "
-            />
-          </div>
-        </Modal.Open>
-        <Modal.Open opensWindowName="project-details">
-          <div className="px-2 text-left grid cursor-pointer">
-            <h2 className="xl:text-xl font-semibold uppercase pt-3 tracking-widest  ">
-              {title}
-            </h2>
-          </div>
-        </Modal.Open>
-        <div className="flex items-center pt-5 lg:text-lg">
-          <Modal.Open opensWindowName="project-details">
-            <button className=" uppercase text-sm font-semibold tracking-widest">
-              View Details
-            </button>
-          </Modal.Open>
-          <div className="h-4 w-0.5 mx-3 bg-gray-400"></div>
-          <NavLink to={project?.url} target="_blank">
-            <button
-              className="flex items-center justify-center uppercase gap-1 text-sm font-semibold tracking-widest group"
-              onClick={() => handleDetails(data)}
-            >
-              View Site{' '}
-              <HiOutlineExternalLink className="-translate-y-[1px] group-hover:translate-x-1 group-hover:transition-transform duration-300" />{' '}
-            </button>
-          </NavLink>
+        <div className="w-full h-fit md:w-[35rem] lg:w-[38rem] rounded-2xl shadow-none  ">
+          <img
+            src={coverImage}
+            alt={title}
+            className=" w-full h-full object-cover p-5 pb-0 md:p-8 md:pb-0 rounded-none group-hover:p-0 group-hover:pb-0 group-hover:rounded-2xl transition-all duration-150"
+          />
         </div>
-      </div>
-      <Modal.Window name="project-details">
-        <ProjectDetails project={project} />
-      </Modal.Window>
-    </div>
+
+        <h4 className="p-4 text-lg md:text-xl font-medium text-center text-white">
+          {title}
+        </h4>
+      </motion.div>
+      <Modal closeModal={toggleModal} isModalOpen={isModalOpen}>
+        <ProjectDetails project={project} gradient={bgGradient} />
+      </Modal>
+    </>
   );
 }
 

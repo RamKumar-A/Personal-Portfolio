@@ -2,34 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .section_header {
-    @apply text-2xl relative md:text-[1.6rem] xl:text-3xl text-center w-full font-medium mb-5 uppercase tracking-widest  flex items-center justify-center  bg-clip-text  p-5 py-3 after:content-[''] sm:after:absolute sm:after:w-14 sm:after:h-0.5  sm:after:left-1/2 sm:after:-bottom-1 sm:after:-translate-x-1/2 sm:after:bg-gray-400;
-  }
-  .icon_hover {
-    @apply hover:rotate-[360deg] hover:transition-transform duration-300 ease-in-out;
-  }
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+@layer components {
+  .section_header {
+    @apply text-4xl relative md:text-5xl xl:text-5xl text-center w-full font-medium lg:font-semibold font-[Raleway] text-secondary drop-shadow-md;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-primary text-neutral font-[Barlow];
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
-body {
-  font-family: 'Raleway';
-  color: #030712;
+
+.scrollToTop::after {
+  content: '';
+  position: absolute;
+  background-color: #1d4ed8;
+  z-index: 10;
 }
+
+.heading::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 50px;
+  height: 0.2rem;
+  background: #f5004f;
+  box-shadow: 0 1px 1px 0.5px rgba(245, 0, 79, 0.2),
+    0 0.5px 0.5px rgba(245, 0, 79, 0.1);
+}
+
 ::-webkit-scrollbar {
   width: 6px;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 14px;
-  background-color: #979ddf;
 }
 
 ::-webkit-scrollbar-track {

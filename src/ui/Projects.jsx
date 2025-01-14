@@ -1,35 +1,44 @@
-import { useState } from 'react';
-import { Fade } from 'react-awesome-reveal';
-
-import { projectData } from '../data/projectData/data';
+import { projectData } from '../data/projectData';
+import {
+  childVariants,
+  grandchildVariants,
+  parentVariants,
+} from '../helpers/variants';
 import ProjectItems from './ProjectItems';
+import { motion } from 'framer-motion';
+
+const colors = [
+  'from-gray-800 via-gray-600 to-gray-500',
+  'from-violet-600 via-violet-400 to-cyan-300',
+  'from-amber-900 via-cyan-900 to-violet-900',
+];
 
 function Projects() {
-  const [details, setDetails] = useState(null);
-
-  function handleDetails(detail) {
-    setDetails(detail);
-  }
-
   return (
-    <div id="project" className="w-full section xl:mb-10 mt-10 ">
-      <h1 className="section_header xl:py-5">A Small Selection of my work</h1>
-      <div className="pt-5 w-full grid xl:grid-cols-2 justify-center place-items-center justify-items-center gap-y-7 gap-x-3 ">
-        <Fade delay={400} direction="">
-          {projectData.map((data, i) => (
-            <ProjectItems
-              title={data.title}
-              img={data.img}
-              data={data}
-              key={i}
-              details={details || {}}
-              handleDetails={handleDetails}
-              className={i === projectData.length - 1 ? 'grid col-span-2' : ''}
-            />
-          ))}
-        </Fade>
+    <motion.section
+      variants={parentVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      id="work"
+      className="w-full section py-2 space-y-5"
+    >
+      <div className="md:py-20 px-10 p-5">
+        <motion.h1 variants={childVariants} className="section_header ">
+          <span className="heading">A small selection of my work.</span>
+        </motion.h1>
       </div>
-    </div>
+      <motion.div
+        variants={childVariants}
+        className="w-fit flex flex-wrap justify-center gap-10 py-5 "
+      >
+        {projectData.map((data, i) => (
+          <motion.div variants={grandchildVariants} key={i}>
+            <ProjectItems data={data} bgGradient={colors[i]} />
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.section>
   );
 }
 

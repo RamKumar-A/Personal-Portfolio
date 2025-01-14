@@ -1,80 +1,218 @@
 import { NavLink } from 'react-router-dom';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { IoLogoGithub } from 'react-icons/io5';
+import { motion } from 'framer-motion';
+import {
+  childVariants,
+  grandchildVariants,
+  parentVariants,
+} from '../helpers/variants';
 
-import Carousel from './Carousel';
-
-function ProjectDetails({ project }) {
-  // const project = projectData.find((item) => item.title === details.title);
-  const btnClass =
-    'p-2  sm:px-3 flex items-center justify-center gap-2 uppercase sm:tracking-widest bg-gray-200 font-semibold rounded-lg active:translate-y-0.5 shadow-lg border border-gray-200 shadow-gray-400 hover:shadow-lg hover:shadow-gray-500 hover:transition-all duration-300 ease-out ';
-
+function ProjectDetails({ project, gradient }) {
   return (
-    <>
-      {/* <Fade> */}
-      <div className="grid sm:grid-rows-[1fr_1fr] lg:grid-rows-none lg:grid-cols-[1fr_1fr] h-full gap-3 justify-items-center place-items-center text-sm font-[Raleway]">
-        <div
-          className={`w-full h-52 md:h-[24rem] lg:w-[35rem] lg:h-[20rem] xl:w-[55rem] xl:h-[30rem] flex items-center justify-center `}
+    <div className="md:py-10 w-full">
+      <motion.div
+        className="py-5 md:py-10 grid justify-items-center space-y-5 "
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={parentVariants}
+      >
+        <motion.h1
+          variants={grandchildVariants}
+          className={`text-3xl sm:text-[3.5rem] text-center drop-shadow-lg font-[Raleway] tracking-wider font-medium p-1  `}
         >
-          <Carousel
-            className=" p-1 sm:p-2 w-full h-full shadow-xl shadow-gray-500 "
-            images={project?.carouselImg}
-          />
-        </div>
-        <div className="px-3 h-full md:h-[20rem] lg:h-[30rem] xl:h-full lg:overflow-auto">
-          <h1 className="text-2xl text-center font-bold pt-3">
+          {project?.title}
+        </motion.h1>
+        <motion.p
+          variants={childVariants}
+          className="lg:w-1/2 text-center text-sm px-2 md:text-lg text-secondary/90 tracking-wide"
+        >
+          {project?.description}
+        </motion.p>
+
+        <ViewBtns project={project} />
+      </motion.div>
+
+      {/* HighLights */}
+      <Highlights project={project} gradient={gradient} />
+
+      {/* Tech Stacks */}
+      <ProjectTechStack project={project} gradient={gradient} />
+
+      {/* Footer btns */}
+      <motion.footer
+        variants={parentVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="py-10"
+      >
+        <div className="flex justify-center md:justify-between flex-wrap items-end w-full gap-5 px-5">
+          <motion.h3
+            variants={childVariants}
+            className="text-3xl font-semibold text-neutral/90 "
+          >
             {project?.title}
-          </h1>
-          <div className="py-2 pb-6">
-            <h2 className="text-xl font-medium ">Overview</h2>
-            <div className="pt-2">
-              <p className=" leading-6 font-[Raleway]">{project?.overview}</p>
-              <div className="flex gap-3 pt-5 sm:text-sm items-center justify-center sm:justify-start">
-                <NavLink to={project?.gitUrl} target="_blank">
-                  <button className={btnClass}>
-                    <IoLogoGithub />
-                    Github Code
-                  </button>
-                </NavLink>
-                <NavLink to={project?.url} target="_blank">
-                  <button className={`${btnClass} group  `}>
-                    <span className="">View site</span>
-                    <HiOutlineExternalLink className="group-hover:scale-110 group-hover:translate-x-0.5 group-hover:transition-transform duration-300 ease-out" />
-                  </button>
-                </NavLink>
-              </div>
-            </div>
-          </div>
-          <div className="pb-6">
-            <h1 className="text-xl font-medium">Tech Stack</h1>
-            <div className="flex flex-wrap items-center justify-start font-medium gap-3 p-1 pt-4">
-              {project?.techStack.map((tech, i) => (
-                <p
-                  className="p-1 border border-blue-500 rounded-md bg-blue-700 text-gray-50 px-2 shadow-lg shadow-gray-500"
-                  key={i}
-                >
-                  {tech}
-                </p>
-              ))}
-            </div>
-          </div>
-          <div className="py-2 pb-6 ">
-            <h2 className="text-xl font-medium capitalize ">stack overview</h2>
-            <p className=" py-3 tracking-wide leading-6">
-              {project?.stackOverview}
-            </p>
-          </div>
+            {'  '}
+          </motion.h3>
+          <ViewBtns project={project} />
         </div>
-      </div>
-      {/* </Fade> */}
-    </>
+      </motion.footer>
+    </div>
+  );
+}
+
+function ViewBtns({ project }) {
+  return (
+    <motion.div
+      className="text-md flex items-center gap-2 justify-between md:justify-center "
+      variants={childVariants}
+    >
+      <NavLink to={project?.gitUrl} target="_blank">
+        <motion.button
+          variants={childVariants}
+          className="flex items-center justify-center md:gap-2 bg-accent/95 px-2 py-1.5 gap-0.5 md:p-2 font-medium tracking-wider text-white rounded-lg"
+        >
+          <IoLogoGithub size={18} />
+          <span>View code</span>
+        </motion.button>
+      </NavLink>
+      <NavLink to={project?.url} target="_blank">
+        <motion.button
+          variants={childVariants}
+          className="group flex items-center justify-center md:gap-2 bg-accent px-2 py-1.5 gap-0.5 md:p-2 font-medium tracking-wider text-white rounded-lg"
+        >
+          <span className="">Open live site</span>
+          <HiOutlineExternalLink
+            className="group-hover:scale-105 group-hover:translate-x-1 group-hover:transition-transform duration-300 ease-out"
+            size={18}
+          />
+        </motion.button>
+      </NavLink>
+    </motion.div>
+  );
+}
+
+function Highlights({ project, gradient }) {
+  return (
+    <motion.div
+      variants={parentVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="py-5 md:py-10 scroll-smooth"
+    >
+      <motion.h1
+        variants={grandchildVariants}
+        className="text-4xl font-semibold md:font-normal md:text-[2.75rem] relative text-center py-5 md:py-10 text-neutral/90 "
+      >
+        A Few highlights
+      </motion.h1>
+      {project?.features.map((feature, i) => (
+        <motion.div
+          variants={parentVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid lg:grid-cols-2 gap-10 md:gap-1 overflow-hidden py-5"
+          key={i}
+        >
+          <motion.div
+            variants={childVariants}
+            className={`${
+              (i + 1) % 2 === 0 ? 'md:order-2' : 'md:order-1'
+            } p-3 md:p-10 space-y-2 md:space-y-5 place-content-center`}
+          >
+            <motion.h1
+              variants={grandchildVariants}
+              className="text-2xl md:text-[2rem] font-semibold text-secondary"
+            >
+              {feature?.heading}
+            </motion.h1>
+            <motion.p
+              variants={grandchildVariants}
+              className="text-md md:text-lg text-neutral/75 text-left"
+            >
+              {feature?.desc}
+            </motion.p>
+          </motion.div>
+          <motion.div
+            className={`max-[520px]:h-56 sm:h-80 w-full lg:h-96 rounded-2xl ${gradient} ${
+              (i + 1) % 2 === 0
+                ? 'md:order-1 -translate-x-10 md:-translate-x-5 bg-gradient-to-tr'
+                : 'md:order-2  translate-x-10 md:translate-x-20 bg-gradient-to-tl '
+            } `}
+          >
+            <motion.img
+              src={feature?.image}
+              className={`w-full h-full p-3 md:p-4 xl:p-4 ${
+                feature?.isMobileScreen ? 'object-contain' : 'object-fill'
+              }`}
+              alt={feature?.heading}
+            />
+          </motion.div>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+}
+
+function ProjectTechStack({ project, gradient }) {
+  return (
+    <div className="z-50 mx-2">
+      <h1 className="text-4xl font-semibold md:font-normal md:text-[2.75rem] text-center py-5 md:py-10 text-neutral/90 ">
+        Tech Stack
+      </h1>
+      <motion.div
+        variants={parentVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className={`grid lg:grid-cols-2 gap-4 md:p-5 px-3 py-5 bg-gradient-to-tl ${gradient} rounded-2xl`}
+      >
+        <motion.div
+          className={`relative h-full content-center space-y-2`}
+          variants={childVariants}
+        >
+          <h2 className="text-center text-2xl text-primary">Stack</h2>
+          <motion.div className="grid grid-cols-2 gap-3 md:p-4   ">
+            {project?.techStack.map((tech, i) => (
+              <motion.div key={i} variants={grandchildVariants}>
+                <TechCard tech={tech} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+        <motion.div
+          variants={childVariants}
+          className="space-y-2 col-span-1 text-primary"
+        >
+          <motion.h1 variants={childVariants} className="text-2xl">
+            Stack Overview
+          </motion.h1>
+          <motion.p
+            variants={grandchildVariants}
+            className="text-sm sm:text-md text-primary/80"
+          >
+            {project?.stackOverview}
+          </motion.p>
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+}
+
+function TechCard({ tech }) {
+  return (
+    <motion.div
+      className={`w-full py-2 md:h-20 rounded-lg flex items-center justify-center relative overflow-hidden bg-neutral/90`}
+    >
+      <h2 className="text-lg md:text-2xl font-extrabold z-10 text-accent text-center">
+        {tech}
+      </h2>
+    </motion.div>
   );
 }
 
 export default ProjectDetails;
-
-/* <img
-            src={zenlist}
-            alt="zenlist"
-            className="object-contain p-1 sm:p-2 w-full h-full"
-          /> */

@@ -1,39 +1,43 @@
 import { useState } from 'react';
-import { HiMiniBars3BottomRight, HiOutlineXMark } from 'react-icons/hi2';
-
-import Navbar from './Navbar';
 import Logo from './Logo';
-import NavbarModal from './NavbarModal';
+import Navbar from './Navbar';
+import { HiBars3BottomRight } from 'react-icons/hi2';
+import Drawer from './Drawer';
+import MobileNavbar from './MobileNavbar';
 
 function Header() {
-  const [toggleNav, setToggleNav] = useState(false);
-  function handleToggle() {
-    setToggleNav(!toggleNav);
-  }
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div className="lg:my-2 xl:h-full  ">
-      <div className="fixed lg:flex lg:flex-col items-center lg:justify-center justify-between py-2 sm:h-auto z-20 hidden">
+    <div className="flex items-center justify-between w-full py-2 md:py-3 sticky top-0 backdrop-blur-xl z-20 px-2 sm:px-5">
+      <Logo />
+      <div className="max-sm:hidden">
         <Navbar />
       </div>
-      <div className="lg:hidden fixed flex justify-between items-center py-2 px-3 text-xl bg-gray-100 w-full z-20 ">
-        <Logo />
-        <div
-          className="rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center cursor-pointer "
-          onClick={handleToggle}
-        >
-          {toggleNav ? (
-            <span className="bg-blue-700 text-gray-100 p-2 rounded-full transition-all duration-200  ">
-              <HiOutlineXMark className=" " />
-            </span>
-          ) : (
-            <span className="p-2 transition-all duration-200  ">
-              <HiMiniBars3BottomRight className="" />
-            </span>
-          )}
-        </div>
-      </div>
-      <NavbarModal toggleNav={toggleNav} handleToggle={handleToggle} />
+      <button
+        className="sm:hidden p-1 text-neutral/95 border rounded-full border-neutral/20"
+        onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+      >
+        <HiBars3BottomRight size={22} />
+      </button>
+      <button
+        className="text-xs md:text-sm max-sm:hidden tracking-widest font-semibold text-accent"
+        onClick={() =>
+          window.open(
+            'https://drive.google.com/file/d/1uz84XtTx8mEyLgxgpLbsGkHxrShzb_TE/view?usp=sharing',
+            '_blank'
+          )
+        }
+      >
+        Resume
+      </button>
+      <Drawer
+        isOpen={isDrawerOpen}
+        position="left"
+        onClose={() => setIsDrawerOpen(false)}
+      >
+        <MobileNavbar onClose={() => setIsDrawerOpen(false)} />
+      </Drawer>
     </div>
   );
 }
