@@ -28,12 +28,21 @@ const listVariants = {
   },
 };
 
+// className=" animate-text-shine"
+//                 color="transparent"
+//                 sx={{
+//                   backgroundClip: 'text',
+//                   backgroundImage:
+//                     'radial-gradient(circle, #7182ff 0%, #3cff52 100%)',
+//                   backgroundSize: '200% 200%',
+//                 }}
+
 function HeroContent() {
   return (
     <div className="md:px-3">
       <motion.div variants={parentVariants} initial="hidden" animate="visible">
         <motion.h1
-          className="text-[2.9rem] md:text-6xl lg:text-8xl tracking-widest font-medium md:font-semibold lg:font-medium font-[Red+Hat+Display] text-center py-3 drop-shadow-lg"
+          className="text-[2.9rem] md:text-6xl lg:text-8xl tracking-widest font-medium md:max-lg:font-semibold font-[Red+Hat+Display] text-center py-3 drop-shadow-lg "
           variants={boxVariants}
         >
           {'Ram'.split('').map((str, i) => (
@@ -48,7 +57,7 @@ function HeroContent() {
           ))}
           <motion.span
             variants={listVariants}
-            className="font-[Montserrat] text-secondary "
+            className="font-[Montserrat]  bg-clip-text bg-size-[200%_200%] animate-text-shine text-transparent bg-radial-[at_0%_100%] via-secondary from-accent to-accent lg:text-9xl"
           >
             .
           </motion.span>
@@ -60,7 +69,7 @@ function HeroContent() {
           I'm
           <span className="font-[Raleway] text-secondary drop-shadow-md">
             {' '}
-            Front End Developer
+            MERN Stack Developer
           </span>
           <span className="font-[Montserrat]">.</span>
         </motion.h1>

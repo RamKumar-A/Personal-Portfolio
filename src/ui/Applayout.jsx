@@ -15,7 +15,7 @@ function Applayout() {
       <Animation />
       <div className="relative">
         <Header />
-        <main className="grid z-10 mx-1 ">
+        <main className="grid z-10 container mx-auto">
           <Hero />
           <About />
           <Projects />

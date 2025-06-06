@@ -24,7 +24,7 @@ function Header() {
         className="text-xs md:text-sm max-sm:hidden tracking-widest font-semibold text-accent"
         onClick={() =>
           window.open(
-            'https://drive.google.com/file/d/1uz84XtTx8mEyLgxgpLbsGkHxrShzb_TE/view?usp=sharing',
+            'https://drive.google.com/file/d/1z2bL8CTGMvk12tZvaX9hG4S2TLUteuVd/view?usp=sharing',
             '_blank'
           )
         }

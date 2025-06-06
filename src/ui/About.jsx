@@ -13,7 +13,7 @@ function About() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="flex items-center rounded-2xl gap-5 justify-center px-2 py-5 sm:px-5 sm:py-10 h-full w-full"
+      className="flex items-center rounded-2xl gap-5 justify-center px-2 py-5 sm:px-5 sm:py-10 h-full w-full line-cl"
     >
       <div className="sm:p-5 p-2 rounded-2xl xl:h-[20rem] lg:w-1/2 grid place-content-between content-center gap-5 max-lg:border max-lg:bg-white ">
         <div className="md:max-lg:p-8 py-5">
@@ -26,20 +26,22 @@ function About() {
         </div>
         <motion.p
           variants={grandchildVariants}
-          className=" text-md md:text-[1rem] h-full leading-8 text-left max-lg:sm:text-center md:font-medium "
+          className="text-sm sm:text-md  h-full leading-8 text-left"
         >
-          Hi there! I'm a 21-year-old frontend developer passionate about
-          creating user-friendly designs. Working with various scripting
-          languages and frameworks, I've set high standards for web
-          applications.
-          <br /> My focus is not just on making products enjoyable but also
-          ensuring the code is easy to maintain and understand.
-          {/* I've had the
-            chance to build memorable, user-friendly projects that showcase the
-            perfect blend of creativity and functionality. */}
+          Passionate MERN Stack Developer with experience building clean,
+          responsive web applications using React.js, Node.js, Express.js, and
+          MongoDB.
           <br />
-          Check out my portfolio to see the simplicity and effectiveness of my
-          work!
+          Skilled at creating dynamic front-end interfaces with React, Tailwind
+          CSS, and Material UI, and integrating secure backend APIs.
+          <br />
+          Always curious, constantly learning — currently working on full-stack
+          projects to sharpen real-world development skills.
+          <br />
+          <span className=" font-semibold text-sm">
+            Check out my portfolio to see the simplicity and effectiveness of my
+            work!
+          </span>
         </motion.p>
       </div>
       <div className="xl:w-[30rem] xl:h-[30rem] w-[25rem] h-[25rem] items-center justify-center p-5 pb-0 bg-accent/15 relative hidden lg:flex rounded-t-3xl">

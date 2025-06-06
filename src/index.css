@@ -1,27 +1,68 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@theme {
+  --text-md: 0.95rem;
+  --text-md--line-height: 1.5rem;
+
+  --color-primary: #fffffe;
+  --color-secondary: #1230ae;
+  --color-accent: #f5004f;
+  --color-neutral: #040d12;
+  --breakpoint-2xl: 125rem;
 }
 
-@layer components {
-  .section_header {
-    @apply text-4xl relative md:text-5xl xl:text-5xl text-center w-full font-medium lg:font-semibold font-[Raleway] text-secondary drop-shadow-md;
+@layer utilities {
+  @keyframes text-shine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-text-shine {
+    animation: text-shine 3s ease-in-out infinite alternate;
   }
 }
 
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
 @layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   body {
     @apply bg-primary text-neutral font-[Barlow];
+    background-color: var(--color-primary);
+    color: var(--color-neutral);
+    font-family: 'Barlow';
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  button {
+    cursor: pointer;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+.section_header {
+  @apply text-4xl relative md:text-5xl xl:text-5xl text-center w-full font-medium lg:font-semibold font-[Raleway] text-secondary drop-shadow-md;
 }
 
 .scrollToTop::after {

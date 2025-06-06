@@ -39,12 +39,12 @@ function Modal({ children, closeModal, isModalOpen }) {
             ref={ref}
           >
             <motion.button
-              className="absolute top-1 right-1 z-[100] xl:top-2 xl:right-2 p-1 md:p-2 bg-accent text-gray-50 rounded-full"
+              className="absolute top-1 right-1 z-100 xl:top-2 xl:right-2 p-1 md:p-2 bg-accent text-gray-50 rounded-full"
               whileHover={{ rotate: '180deg', transition: { duration: 0.1 } }}
               onClick={closeModal}
               whileTap={{ scale: 0.9 }}
             >
-              <HiXMark size={20} />
+              <HiXMark className="text-md sm:text-lg md:text-xl" />
             </motion.button>
             <div className="h-full relative ">{children}</div>
           </motion.div>

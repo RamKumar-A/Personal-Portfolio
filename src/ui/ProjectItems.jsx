@@ -24,7 +24,7 @@ function ProjectItems({ data, bgGradient }) {
   return (
     <>
       <motion.div
-        className={`rounded-2xl ${bgGradient} bg-gradient-to-tr relative group cursor-pointer`}
+        className={`rounded-2xl ${bgGradient} relative group cursor-pointer bg-size-[200%_200%] animate-text-shine text-transparent bg-radial-[at_0%_100%] `}
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -37,11 +37,11 @@ function ProjectItems({ data, bgGradient }) {
           handleDetails(data);
         }}
       >
-        <div className="w-full h-fit md:w-[35rem] lg:w-[38rem] rounded-2xl shadow-none  ">
+        <div className="w-full h-fit  md:w-[35rem] lg:w-[38rem] rounded-2xl shadow-none">
           <img
             src={coverImage}
             alt={title}
-            className=" w-full h-full object-cover p-5 pb-0 md:p-8 md:pb-0 rounded-none group-hover:p-0 group-hover:pb-0 group-hover:rounded-2xl transition-all duration-150"
+            className="w-full h-full object-cover px-5 pt-5 md:px-8 md:pt-8 rounded-none group-hover:p-1 group-hover:rounded-2xl transition-all duration-150"
           />
         </div>
 
