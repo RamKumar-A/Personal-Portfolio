@@ -5,7 +5,7 @@ import { useMouseMove } from '../hooks/mouseMoveAnimation';
 import { useState } from 'react';
 import Modal from './Modal';
 
-function ProjectItems({ data, bgGradient }) {
+function ProjectItems({ data }) {
   const [details, setDetails] = useState({});
 
   function handleDetails(detail) {
@@ -19,12 +19,13 @@ function ProjectItems({ data, bgGradient }) {
     setIsModalOpen(!isModalOpen);
   }
 
-  const { coverImage, title } = data || {};
+  const { coverImage, title, gradient } = data || {};
   const project = projectData.find((item) => item.title === details.title);
+
   return (
     <>
       <motion.div
-        className={`rounded-2xl ${bgGradient} relative group cursor-pointer bg-size-[200%_200%] animate-text-shine text-transparent bg-radial-[at_0%_100%] `}
+        className={`rounded-2xl ${gradient} relative group cursor-pointer bg-size-[200%_200%] animate-text-shine text-transparent bg-radial-[at_0%_100%] `}
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -50,7 +51,7 @@ function ProjectItems({ data, bgGradient }) {
         </h4>
       </motion.div>
       <Modal closeModal={toggleModal} isModalOpen={isModalOpen}>
-        <ProjectDetails project={project} gradient={bgGradient} />
+        <ProjectDetails project={project} gradient={gradient} />
       </Modal>
     </>
   );

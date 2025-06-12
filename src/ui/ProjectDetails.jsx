@@ -9,6 +9,7 @@ import {
 } from '../helpers/variants';
 
 function ProjectDetails({ project, gradient }) {
+  console.log(project);
   return (
     <div className="md:py-10 w-full">
       <motion.div
@@ -35,13 +36,13 @@ function ProjectDetails({ project, gradient }) {
       </motion.div>
 
       {/* HighLights */}
-      <Features project={project} gradient={gradient} />
+      <Features project={project} gradient={project?.gradient} />
 
       {/* Tech Stacks */}
-      <TechStack techStack={project?.techStacks} gradient={gradient} />
+      <TechStack techStack={project?.techStacks} gradient={project?.gradient} />
 
       <div
-        className={`grid lg:grid-cols-2 gap-4 md:px-5 px-3  ${gradient} rounded-2xl mx-2 sm:mx-4 my-10 py-5 scroll-smooth pb-10 border-2`}
+        className={`grid lg:grid-cols-2 gap-4 md:px-5 px-3  ${project?.gradient} rounded-2xl mx-2 sm:mx-4 my-10 py-5 scroll-smooth pb-10 border-2`}
       >
         <OtherFeatures otherFeatures={project?.otherFeatures || []} />
         <MyRole role={project?.myRole || []} />
@@ -171,7 +172,7 @@ function TechStack({ techStack, gradient = '' }) {
         Tech Stack
       </h1>
       <div
-        className={`grid sm:place-content-center sm:justify-items-center max-md:gap-5 md:px-5 px-3 rounded-2xl mx-2 py-2 md:py-5 scroll-smooth pb-10 bg-size-[200%_200%] animate-text-shine bg-radial-[at_0%_100%] ${gradient} `}
+        className={`grid sm:place-content-center sm:justify-items-center max-md:gap-5 md:px-5 px-3 pt-3 sm:pt-5 rounded-2xl mx-2 py-2 md:py-5 scroll-smooth pb-10 bg-size-[200%_200%] animate-text-shine bg-radial-[at_0%_100%] ${gradient} `}
       >
         {techStack?.map((tech, i) => (
           <motion.div
@@ -179,13 +180,13 @@ function TechStack({ techStack, gradient = '' }) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className={`grid gap-2 sm:gap-3 sm:grid-cols-3 w-full space-y-2 md:space-y-4 items-center text-gray-200`}
+            className={`grid gap-2 sm:gap-3 sm:grid-cols-3 w-full space-y-2 md:space-y-4 items-center text-white place-items-center place-content-center sm:place-items-start`}
             key={i}
           >
             <h2 className="text-lg md:text-normal max-[350px]:text-center">
               {tech.part}
             </h2>
-            <div className="flex max-sm:justify-center items-center flex-wrap gap-2 sm:col-span-2 max-md:text-sm">
+            <div className="flex max-sm:justify-center items-center flex-wrap gap-2 sm:col-span-2 max-md:text-sm text-md">
               {tech?.tech?.map((t, i) => (
                 <motion.div key={t + '_' + i} variants={grandchildVariants}>
                   <TechCard tech={t} />

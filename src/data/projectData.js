@@ -8,8 +8,6 @@ export const projectData = [
     gitUrl: 'https://github.com/RamKumar-A/Watch-Realm/',
     description:
       'Watch Realm is a modern e-commerce platform for luxury wristwatches, offering a smooth shopping experience with features like user authentication, Stripe payments, and easy product sharing.',
-    techStack: ['React', 'React Query', 'Custom API', 'Tailwind CSS'],
-
     features: [
       {
         heading: 'User authentication',
@@ -71,6 +69,143 @@ export const projectData = [
       'Product details page with high-quality images and descriptions',
       'Smooth UI interactions with React Query and efficient API communication',
     ],
+    gradient: 'from-amber-600 via-cyan-600 to-amber-700 ',
+  },
+  {
+    title: 'Interview Prep AI',
+    coverImage:
+      'https://res.cloudinary.com/dc3yfknua/image/upload/v1749731962/Screenshot_2025-06-12_175415_yeuhhd.png',
+    createdAt: '2025 MAY',
+    url: 'https://mern-interview-prep-ai-kappa.vercel.app/',
+    gitUrl: 'https://github.com/RamKumar-A/mern-interview-prep-ai',
+    description: `Interview Preparation with AI is a smart web app that helps users prepare for job interviews with AI-generated questions, detailed concept explanations, role-based prep management, and secure authentication—all in a mobile-responsive design.
+`,
+    techStacks: [
+      {
+        part: 'Frontend',
+        tech: ['React', 'React Markdown', 'Tailwind CSS', ' React Router 6'],
+      },
+      {
+        part: 'Backend',
+        tech: ['NodeJS', 'ExpressJS'],
+      },
+      {
+        part: 'Database',
+        tech: ['MongoDB'],
+      },
+      {
+        part: 'AI Integration',
+        tech: ['Gemini AI API'],
+      },
+      {
+        part: 'Authentication',
+        tech: ['JWT-based'],
+      },
+    ],
+    myRole: [
+      'Built frontend UI and integrated Gemini AI for dynamic Q&A.',
+      'Developed role-specific prep flows and concept breakdowns',
+      'Implemented user authentication and prep session management',
+      'Created a mobile-friendly, responsive interface using Tailwind CSS',
+      'Connected frontend to backend APIs and managed state efficiently',
+    ],
+    features: [
+      {
+        heading: 'Based on role',
+        image:
+          'https://res.cloudinary.com/dc3yfknua/image/upload/v1749732396/Screenshot_2025-06-12_175604_tderxi.png',
+        desc: 'Role-based interview preparation',
+        isMobileScreen: false,
+      },
+      {
+        heading: 'Mobile Responsive',
+        image:
+          'https://res.cloudinary.com/dc3yfknua/image/upload/v1749732575/WhatsApp_Image_2025-06-12_at_18.05.24_59eb5754_vgf4on.jpg',
+        desc: 'Fully responsive and mobile-optimized interface',
+        isMobileScreen: true,
+      },
+      {
+        heading: 'AI Intergrated',
+        image:
+          'https://res.cloudinary.com/dc3yfknua/image/upload/v1749732477/Screenshot_2025-06-12_175537_auhu7i.png',
+        desc: 'AI-generated questions and model answers using Gemini AI API',
+        isMobileScreen: false,
+      },
+    ],
+    otherFeatures: [
+      'Detailed explanations of key concepts',
+      'Create, save, and manage custom interview prep sessions',
+      'User authentication and session management',
+      'Fully mobile-responsive design',
+    ],
+    gradient: 'from-purple-600 via-fuchsia-400 to-zinc-600 ',
+  },
+  {
+    title: 'Resume Builder',
+    coverImage:
+      'https://res.cloudinary.com/dc3yfknua/image/upload/v1748439954/Screenshot_2025-05-28_191528_ngevk2.png',
+    createdAt: '2025 APR',
+    url: 'https://mern-resume-builder.vercel.app/',
+    gitUrl: 'https://github.com/RamKumar-A/mern-resume-builder',
+    description: `Resume Builder is a modern and user-friendly web app that helps users quickly create and customize professional resumes. It allows users to input details, choose from multiple themes, edit existing resumes, and instantly preview and print or save them as PDFs using the browser’s built-in print feature.
+`,
+    techStacks: [
+      {
+        part: 'Frontend',
+        tech: ['React', 'MUI(Material UI)'],
+      },
+      {
+        part: 'Backend',
+        tech: ['NodeJS', 'ExpressJS'],
+      },
+      {
+        part: 'Database',
+        tech: ['MongoDB'],
+      },
+      {
+        part: 'Authentication',
+        tech: ['JWT-based'],
+      },
+    ],
+    myRole: [
+      'Built the full frontend UI using MUI components and custom themes',
+      'Developed dynamic forms for capturing resume data',
+      'Set up backend routes for storing, updating, and retrieving user resumes',
+      'Implemented theme switching and live preview functionality',
+      'Ensured secure login system and session handling using JWT',
+      'Enabled browser-native printing and PDF exporting via a print-ready layout',
+    ],
+    features: [
+      {
+        heading: 'Custom Themes',
+        image:
+          'https://res.cloudinary.com/dc3yfknua/image/upload/v1748439694/portfolio-images/kmnsk0szjxtnmvxcfsll.png',
+        desc: "Multiple custom themes using Material UI's theming system",
+        isMobileScreen: false,
+      },
+      {
+        heading: 'Secure authentication',
+        image:
+          'https://res.cloudinary.com/dc3yfknua/image/upload/v1748439859/Screenshot_2025-05-28_185917_zrt1wk.png',
+        desc: 'Secure authentication and resume storage',
+        isMobileScreen: false,
+      },
+      {
+        heading: 'Downloadable',
+        image:
+          'https://res.cloudinary.com/dc3yfknua/image/upload/v1748439873/Screenshot_2025-05-28_190011_tso3sn.png',
+        desc: 'Printable and downloadable as PDF using browser print dialog',
+        isMobileScreen: false,
+      },
+    ],
+    otherFeatures: [
+      'Ability to edit and update previously created resumes',
+      'Support for creating and managing multiple resumes per account',
+      'Live resume preview while editing',
+      'Guided form to input resume details.',
+      'Fully responsive and mobile-optimized interface',
+    ],
+    gradient: 'from-lime-500 via-teal-400 to-green-600 ',
   },
   {
     title: 'Zenlist',
@@ -81,9 +216,6 @@ export const projectData = [
     gitUrl: 'https://github.com/RamKumar-A/zenlist/',
 
     description: `Zenlist is a task management web app that helps users stay organized with features like priorities, daily tasks, reminders, a personal dashboard, and secure authentication.`,
-
-    techStack: ['React JS', 'React Query', 'Supabase', 'Material UI'],
-
     techStacks: [
       {
         part: 'Frontend',
@@ -104,7 +236,6 @@ export const projectData = [
         tech: ['Supabase'],
       },
     ],
-
     features: [
       {
         heading: 'Personal Dashboard',
@@ -142,75 +273,9 @@ export const projectData = [
       'Used React Query for efficient data caching and updates',
       'Styled the UI using a mix of Material UI and Tailwind CSS for a clean, responsive layout',
     ],
+    gradient: 'from-rose-400 via-violet-400 to-orange-600 ',
   },
-  {
-    title: 'Resume Builder',
-    coverImage:
-      'https://res.cloudinary.com/dc3yfknua/image/upload/v1748439954/Screenshot_2025-05-28_191528_ngevk2.png',
-    createdAt: '2025 APR',
-    url: 'https://mern-resume-builder.vercel.app/',
-    gitUrl: 'https://github.com/RamKumar-A/mern-resume-builder',
-    description: `Resume Builder is a modern and user-friendly web app that helps users quickly create and customize professional resumes. It allows users to input details, choose from multiple themes, edit existing resumes, and instantly preview and print or save them as PDFs using the browser’s built-in print feature.
-`,
-    techStack: ['React', 'React Query', 'Material UI', "Third Party Api's"],
-    techStacks: [
-      {
-        part: 'Frontend',
-        tech: ['React', 'MUI(Material UI)'],
-      },
-      {
-        part: 'Backend',
-        tech: ['NodeJS', 'ExpressJS'],
-      },
-      {
-        part: 'Database',
-        tech: ['MongoDB'],
-      },
-      {
-        part: 'Authentication',
-        tech: ['JWT-based'],
-      },
-    ],
-    myRole: [
-      'Built the full frontend UI using MUI components and custom themes',
-      'Developed dynamic forms for capturing resume data',
-      'Set up backend routes for storing, updating, and retrieving user resumes',
-      'Implemented theme switching and live preview functionality',
-      'Ensured secure login system and session handling using JWT',
-      'Enabled browser-native printing and PDF exporting via a print-ready layout',
-    ],
 
-    features: [
-      {
-        heading: 'Custom Themes',
-        image:
-          'https://res.cloudinary.com/dc3yfknua/image/upload/v1748439694/portfolio-images/kmnsk0szjxtnmvxcfsll.png',
-        desc: "Multiple custom themes using Material UI's theming system",
-        isMobileScreen: false,
-      },
-      {
-        heading: 'Secure authentication',
-        image:
-          'https://res.cloudinary.com/dc3yfknua/image/upload/v1748439859/Screenshot_2025-05-28_185917_zrt1wk.png',
-        desc: 'Secure authentication and resume storage',
-        isMobileScreen: false,
-      },
-      {
-        heading: 'Downloadable',
-        image:
-          'https://res.cloudinary.com/dc3yfknua/image/upload/v1748439873/Screenshot_2025-05-28_190011_tso3sn.png',
-        desc: 'Printable and downloadable as PDF using browser print dialog',
-        isMobileScreen: false,
-      },
-    ],
-    otherFeatures: [
-      'Ability to edit and update previously created resumes',
-      'Support for creating and managing multiple resumes per account',
-      'Live resume preview while editing',
-      'Guided form to input resume details.',
-      'Fully responsive and mobile-optimized interface',
-    ],
-  },
   //   {
   //     title: 'Cine Hub',
   //     coverImage:

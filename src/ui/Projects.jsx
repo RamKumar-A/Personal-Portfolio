@@ -7,13 +7,6 @@ import {
 import ProjectItems from './ProjectItems';
 import { motion } from 'framer-motion';
 
-const colors = [
-  'from-amber-800 via-cyan-700 to-purple-700 ',
-  'from-violet-600 via-violet-400 to-cyan-300 ',
-  'from-fuchsia-600 via-fuchsia-400 to-zinc-600 ',
-  'from-amber-900 via-cyan-900 to-violet-900 ',
-];
-
 function Projects() {
   return (
     <motion.section
@@ -35,7 +28,7 @@ function Projects() {
       >
         {projectData.map((data, i) => (
           <motion.div variants={grandchildVariants} key={i}>
-            <ProjectItems data={data} bgGradient={colors[i]} />
+            <ProjectItems data={data} />
           </motion.div>
         ))}
       </motion.div>
