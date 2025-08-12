@@ -4,7 +4,7 @@ export const projectData = [
     coverImage:
       'https://res.cloudinary.com/dc3yfknua/image/upload/v1748441947/Screenshot_2025-05-28_194530_kevyph.png',
     createdAt: '2024 DEC',
-    url: 'https://watch-realm.netlify.app/',
+    url: 'https://watch-realm.vercel.app/',
     gitUrl: 'https://github.com/RamKumar-A/Watch-Realm/',
     description:
       'Watch Realm is a modern e-commerce platform for luxury wristwatches, offering a smooth shopping experience with features like user authentication, Stripe payments, and easy product sharing.',
