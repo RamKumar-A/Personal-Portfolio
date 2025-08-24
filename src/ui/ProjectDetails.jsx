@@ -9,7 +9,6 @@ import {
 } from '../helpers/variants';
 
 function ProjectDetails({ project, gradient }) {
-  console.log(project);
   return (
     <div className="md:py-10 w-full">
       <motion.div
@@ -55,7 +54,7 @@ function ProjectDetails({ project, gradient }) {
         viewport={{ once: true }}
         className="sm:py-10 max-sm:pb-10"
       >
-        <div className="flex justify-center md:justify-between flex-wrap items-end w-full gap-5 px-5">
+        <div className="flex justify-center md:justify-between flex-wrap items-end w-full gap-5 px-3">
           <motion.h3
             variants={childVariants}
             className="text-2xl font-medium sm:font-semibold text-neutral/90 "
@@ -79,7 +78,7 @@ function CTABtns({ project }) {
       <NavLink to={project?.gitUrl} target="_blank">
         <motion.button
           variants={childVariants}
-          className="flex items-center justify-center md:gap-2 bg-accent/95 px-2 py-1.5 gap-0.5 md:p-2 font-medium tracking-wider text-white rounded-lg text-xs sm:text-md"
+          className="flex items-center justify-center md:gap-2 bg-accent/95 px-2 py-1.5 gap-0.5 md:p-2 font-medium tracking-wider text-white rounded-lg text-sm sm:text-md"
         >
           <IoLogoGithub />
           <span className="">View code</span>
@@ -88,7 +87,7 @@ function CTABtns({ project }) {
       <NavLink to={project?.url} target="_blank">
         <motion.button
           variants={childVariants}
-          className="group flex items-center justify-center md:gap-2 bg-accent px-2 py-1.5 gap-0.5 md:p-2 font-medium tracking-wider text-white rounded-lg text-xs sm:text-md"
+          className="group flex items-center justify-center md:gap-2 bg-accent px-2 py-1.5 gap-0.5 md:p-2 font-medium tracking-wider text-white rounded-lg text-sm sm:text-md"
         >
           <span className="">Open live site</span>
           <HiOutlineExternalLink
@@ -203,9 +202,9 @@ function TechStack({ techStack, gradient = '' }) {
 function TechCard({ tech }) {
   return (
     <motion.div
-      className={`w-fit rounded-lg flex items-center relative overflow-hidden px-2 text-center gap-3 bg-blue-200/20 text-neutral`}
+      className={`w-fit rounded-lg flex items-center relative overflow-hidden px-2 text-center gap-3 bg-gray-200/80 text-black border border-gray-700/50`}
     >
-      <div className="w-1 h-1 rounded-full bg-neutral" />
+      <div className="w-1 h-1 rounded-full bg-black" />
       <h2 className="z-10 text-center">{tech}</h2>
     </motion.div>
   );

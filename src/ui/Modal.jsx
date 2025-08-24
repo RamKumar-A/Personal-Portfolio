@@ -44,7 +44,7 @@ function Modal({ children, closeModal, isModalOpen }) {
               onClick={closeModal}
               whileTap={{ scale: 0.9 }}
             >
-              <HiXMark className="text-md sm:text-lg md:text-xl" />
+              <HiXMark className="text-base sm:text-lg md:text-xl" />
             </motion.button>
             <div className="h-full relative ">{children}</div>
           </motion.div>
