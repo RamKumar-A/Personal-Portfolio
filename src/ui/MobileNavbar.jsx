@@ -54,7 +54,7 @@ function MobileNavbar({ onClose }) {
           className="text-xs md:text-sm tracking-widest font-semibold bg-accent w-full text-white p-3 rounded-sm"
           onClick={() => {
             window.open(
-              'https://drive.google.com/file/d/1ozM9tdHE9EAqpi_kMPA9-DjMfoSB_6tq/view?usp=sharing',
+              'https://drive.google.com/file/d/1YxEMpRZssZQWkgmHfyAYiMB27tptSZZF/view?usp=sharing',
               '_blank'
             );
             onClose();
